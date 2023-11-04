@@ -8,13 +8,11 @@ quantity = st.selectbox("Select quantity", list(range(1, 11)), index=0)
 
 email = st.text_input("Email Address")
 
-st.subheader("Please send your payments to:")
-payment_methods = ["Zelle", "Venmo", "Cash app"]
-payment_ids = ["sudhakar.parsi@gmail.com", "lkjdalsd", "ajdlkada"]
+st.header("Please send your payments to:")
+payment_table = [
+    ["Zelle", "sudhakar.parsi@gmail.com"],
+    ["Venmo", "lkjdalsd"],
+    ["Cash app", "ajdlkada"]
+]
 
-payment_details = {
-    "Payment Method": payment_methods,
-    "ID": payment_ids
-}
-
-st.table(payment_details)
+st.table(payment_table)
