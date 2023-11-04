@@ -25,12 +25,12 @@ def send_email(subject, body, to_email):
         
 left_co, cent_co,last_co = st.columns(3)
 with left_co:
-    st.empty
+    st.image("https://drive.google.com/uc?id=1kZiBgm5toHSwtYt3HPICjwQPl-ulJK2a")
 with cent_co:
     st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 with last_co:
-    st.empty
-    
+    st.image("https://drive.google.com/uc?id=1kZiBgm5toHSwtYt3HPICjwQPl-ulJK2a")
+
 st.title("NCHS After Prom - Fundraiser")
 
 # Text field
