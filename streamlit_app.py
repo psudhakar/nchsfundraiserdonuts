@@ -1,13 +1,20 @@
 import streamlit as st
 
-with st.form("my_form"):
-   st.write("Inside the form")
-   slider_val = st.slider("Form slider")
-   checkbox_val = st.checkbox("Form checkbox")
+# Set the heading
+st.header("NCHS After Prom Fundraiser")
 
-   # Every form must have a submit button.
-   submitted = st.form_submit_button("Submit")
-   if submitted:
-       st.write("slider", slider_val, "checkbox", checkbox_val)
+# Add a text field
+st.write("Once an order is submitted, the digital coupon will be delivered in 24-48 hours to your email address given below.")
 
-st.write("Outside the form")
+# Add a dropdown menu
+options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+quantity = st.selectbox("Quantity", options)
+
+# Add a text field for the email address
+email_address = st.text_input("Email Address")
+
+# Submit the form
+if st.button("Submit"):
+    # Send an email with the digital coupon
+    # ...
+    st.success("Your order has been submitted!")
