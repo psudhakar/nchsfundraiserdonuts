@@ -31,4 +31,4 @@ if st.button("Submit"):
     st.error("Please enter a valid email address.")
   else:
     # Submit the form data
-    # ...
+    
