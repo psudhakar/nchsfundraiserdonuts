@@ -30,4 +30,4 @@ if st.button("Submit"):
   if not is_valid_email(email_address):
     st.error("Please enter a valid email address.")
   else:
-    # Submit the form data
+    st.submit()
