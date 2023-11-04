@@ -23,9 +23,9 @@ def send_email(subject, body, to_email):
         server.login(sender_email, sender_password)
         server.send_message(message)
         
-left_co, cent_co,last_co = st.columns(3)
-with cent_co:
-    st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
+#left_co, cent_co,last_co = st.columns(3)
+#with cent_co:
+st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 
 st.title("NCHS After Prom - Fundraiser")
 
@@ -72,5 +72,3 @@ payment_data = {
 # Display the table
 st.write("Please send your payments as below:")
 st.table(payment_data)
-
-
