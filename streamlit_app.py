@@ -22,14 +22,12 @@ def send_email(subject, body, to_email):
         server.starttls()
         server.login(sender_email, sender_password)
         server.send_message(message)
-
-col1, col2 = st.columns([1, 3])  
-
-with col1:
+        
+left_co, cent_co,last_co = st.columns(3)
+with cent_co:
     st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
-    
-with col2:
-    st.title("NCHS After Prom - Fundraiser")
+
+st.title("NCHS After Prom - Fundraiser")
 
 # Text field
 st.write("Once an order is submitted, the digital certificate will be delivered to your email in 24-48 hours.", max_chars=200)
