@@ -8,8 +8,13 @@ quantity = st.selectbox("Select quantity", list(range(1, 11)), index=0)
 
 email = st.text_input("Email Address")
 
-if st.button("Submit"):
-    # Place your form submission logic here
-    # This is where you can handle the form data or perform validations
-    # For instance, you could add email validation using a library like email_validator
-    pass  # Placeholder for your submit logic
+st.subheader("Please send your payments to:")
+payment_methods = ["Zelle", "Venmo", "Cash app"]
+payment_ids = ["sudhakar.parsi@gmail.com", "lkjdalsd", "ajdlkada"]
+
+payment_details = {
+    "Payment Method": payment_methods,
+    "ID": payment_ids
+}
+
+st.table(payment_details)
