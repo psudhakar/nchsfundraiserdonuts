@@ -55,12 +55,12 @@ form_data = {
 # Display the form
 col1, col2 = st.columns(2)
 with col1:
-    form_data["Name"] = st.text_input("Name:")
-    form_data["Email"] = st.text_input("Email to send Krispy Kreme certificate(s):")
+    form_data["Name"] = st.text_input("**Name:**")
+    form_data["Email"] = st.text_input("**Email to send Krispy Kreme certificate(s):**")
 
 with col2:
-    form_data["Count"] = st.selectbox("Number of dozens: (Each dozen costs 12$)", list(range(1, 11)), index=0)
-    form_data["Comments"] = st.text_input("Comments (Optional):")
+    form_data["Count"] = st.selectbox("**Number of dozens: (Each dozen costs 12$)**", list(range(1, 11)), index=0)
+    form_data["Comments"] = st.text_input("**Comments (Optional):**")
 
 venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 cashurl = "https://cash.app/$SudhakarParsi"
