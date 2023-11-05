@@ -86,4 +86,4 @@ if st.button("Submit"):
 
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
-        st.markdown('Make sure to enter name and valid email address.')
+        st.markdown(':red[Make sure to enter name and valid email address.]')
