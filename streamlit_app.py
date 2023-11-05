@@ -10,7 +10,7 @@ def send_email(subject, body, to_email):
 
     # Create the email message
     message = EmailMessage()
-    message['From'] = "sudhakar.parsi@gmail.com"
+    message['From'] = "NCHS Afterprom"
     message['To'] = to_email
     message['Subject'] = subject
     message.set_content(body)
@@ -32,7 +32,7 @@ st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 
 # Text field
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-
+st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : 4048003312 ")
 form_data = {
     "Name": "",
     "Email": "",
@@ -44,7 +44,7 @@ form_data = {
 col1, col2 = st.columns(2)
 with col1:
     form_data["Name"] = st.text_input("Name:")
-    form_data["Email"] = st.text_input("Email to send krispy kreme certificate:")
+    form_data["Email"] = st.text_input("Email to send Krispy Kreme certificate:")
 
 with col2:
     form_data["Count"] = st.selectbox("Number of dozens: (Each dozen costs 12$)", list(range(1, 11)), index=0)
@@ -63,9 +63,9 @@ if st.button("Submit"):
         st.markdown(':green[Your order submitted. Payment due : ' + str(form_data["Count"]*12) + '$]')
         st.markdown(':blue[Use any payment format below and include the same email address in comments section while making payment !]')
         subject = "KKD Req: " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
-        body = "KKD Req: " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
+        body = "You received a request for KK Doughnuts. " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
         st.table(payment_data)
-        send_email(subject, body, "sudhakar.parsi@gmail.com")
+        send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
         st.markdown(':red[Please enter a valid email address!]')
 
