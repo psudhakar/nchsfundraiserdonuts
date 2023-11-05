@@ -44,8 +44,6 @@ phone_number = "+14048003312"
 phone_link = f'<a href="tel:{phone_number}">{phone_number}</a>'
 
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown(f'For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text: {phone_link}', unsafe_allow_html=True)
-
 
 form_data = {
     "Name": "",
@@ -68,6 +66,8 @@ venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 cashurl = "https://cash.app/$SudhakarParsi"
 recipient_id = 'Jayshri-Patel-5'
 cash_app_link = f'https://cash.app/$${recipient_id}'
+
+st.markdown(f'For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text: {phone_link}', unsafe_allow_html=True)
 
 # Submit button
 if st.button("Submit"):
