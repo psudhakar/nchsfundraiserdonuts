@@ -31,10 +31,10 @@ st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 
 phone_number = "+14048003312"
-# Text field
+
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : ")
-st.markdown(f'<a href="tel:{phone_number}">{phone_number}</a>', unsafe_allow_html=True)
+st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : f'<a href="tel:{phone_number}">{phone_number}</a>', unsafe_allow_html=True ")
+
 
 form_data = {
     "Name": "",
@@ -73,7 +73,3 @@ if st.button("Submit"):
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
         st.markdown(':red[Please enter a valid email address!]')
-
-
-
-
