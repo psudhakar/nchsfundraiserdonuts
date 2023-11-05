@@ -32,7 +32,7 @@ st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 
 # Text field
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : (404)800-3312")
+st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : (404)-800-3312")
 form_data = {
     "Name": "",
     "Email": "",
