@@ -30,10 +30,15 @@ st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 
 st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 
+
+# Phone number to display
 phone_number = "+14048003312"
 
+# Create the HTML string for the clickable phone number
+phone_link = f'<a href="tel:{phone_number}">{phone_number}</a>'
+
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : '<a href="tel:{phone_number}">{phone_number}</a>', unsafe_allow_html=True ")
+st.markdown(f'For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text: {phone_link}', unsafe_allow_html=True)
 
 
 form_data = {
