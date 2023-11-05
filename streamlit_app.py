@@ -60,6 +60,8 @@ with col2:
 
 venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 cashurl = "https://cash.app/$SudhakarParsi"
+recipient_id = 'Jayshri-Patel-5'
+cash_app_link = f'https://cash.app/$${recipient_id}'
 
 # Submit button
 if st.button("Submit"):
@@ -72,9 +74,9 @@ if st.button("Submit"):
         body = body + " Comments : " + form_data["Comments"]
 
         st.markdown("For Venmo, click [here](%s), or send it to Jayshri-Patel-5" % venmourl)
-        st.markdown("For Cash app, click [here](%s), or send to $SudhakarParsi" % cashurl)
+        st.markdown(f'[Pay with Cash App]({cash_app_link}) or send it to $SudhakarParsi')
         st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
 
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
-        st.markdown(':red[Please enter a valid email address!]')
+        st.markdown(f'[Pay with Cash App]({cash_app_link})')
