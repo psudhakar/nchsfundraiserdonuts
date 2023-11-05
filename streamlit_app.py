@@ -32,7 +32,7 @@ st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 
 # Text field
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : 4048003312 ")
+st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : (404)800-3312")
 form_data = {
     "Name": "",
     "Email": "",
@@ -44,7 +44,7 @@ form_data = {
 col1, col2 = st.columns(2)
 with col1:
     form_data["Name"] = st.text_input("Name:")
-    form_data["Email"] = st.text_input("Email to send Krispy Kreme certificate:")
+    form_data["Email"] = st.text_input("Email to send Krispy Kreme certificate(s):")
 
 with col2:
     form_data["Count"] = st.selectbox("Number of dozens: (Each dozen costs 12$)", list(range(1, 11)), index=0)
