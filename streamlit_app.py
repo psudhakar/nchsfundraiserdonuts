@@ -52,8 +52,8 @@ with col2:
 
 # Define the data for the table
 payment_data = {
-    "Payment Method": ["Zelle", "Venmo", "Cash app"],
-    "ID": ["sudhakar.parsi@gmail.com", "sudhakar.pasi@gmail.com", "sudhakar.parsi@gmail.com"]
+    "Payment Method": ["Zelle", "Venmo"],
+    "ID": ["sudhakar.parsi@gmail.com", "https://venmo.com/u/Jayshri-Patel-5"]
 }
 
 # Submit button
