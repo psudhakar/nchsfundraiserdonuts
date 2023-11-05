@@ -53,19 +53,20 @@ with col2:
 venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 cashurl = "https://cash.app/$SudhakarParsi"
 
-st.markdown("For Venmo, click [here](%s), or send it to Jayshri-Patel-5" % venmourl)
-st.markdown("For Cash app, click [here](%s), or send to $SudhakarParsi" % cashurl)
-st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
-
 # Submit button
 if st.button("Submit"):
     if validate_email(form_data["Email"]):
         # Process form submission here
-        st.markdown(':green[Your order submitted. Payment due : ' + str(form_data["Count"]*12) + '$]')
-        st.markdown(':blue[Use any payment format below and include the same email address in comments section while making payment !]')
+        st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*12) + '$]')
+        st.markdown(':blue[Use any payment method below and include the same email address in comments section while making payment !]')
         subject = "KKD Req: " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
         body = "You received a request for KK Doughnuts. " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
         body = body + " Comments : " + form_data["Comments"]
+
+        st.markdown("For Venmo, click [here](%s), or send it to Jayshri-Patel-5" % venmourl)
+        st.markdown("For Cash app, click [here](%s), or send to $SudhakarParsi" % cashurl)
+        st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
+
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
         st.markdown(':red[Please enter a valid email address!]')
