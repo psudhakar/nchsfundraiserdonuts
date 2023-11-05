@@ -26,6 +26,12 @@ def validate_email(email):
     pattern = r"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
     return re.match(pattern, email)
 
+def validate_name(name):
+    if len(name) == 0:
+        return False
+    else:
+        return True
+  
 st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 
 st.title("NCHS After Prom - Krispy Kreme Fundraiser")
@@ -70,7 +76,7 @@ st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to 
 
 # Submit button
 if st.button("Submit"):
-    if validate_email(form_data["Email"]):
+    if validate_email(form_data["Email"]) and validate_name(form_data["Name"]):
         # Process form submission here
         st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*12) + '$]')
         st.markdown(':blue[Use any payment method below and include the same email address in comments section while making payment !]')
@@ -80,4 +86,4 @@ if st.button("Submit"):
 
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
-        st.markdown(f'[Pay with Cash App]({cash_app_link})')
+        st.markdown('Make sure to enter name and valid email address.')
