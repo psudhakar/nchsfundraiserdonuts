@@ -33,7 +33,7 @@ st.title("NCHS After Prom - Krispy Kreme Fundraiser")
 phone_number = "+14048003312"
 
 st.write("Once an order is submitted, digital certificate will be delivered to your email in 24-48 hours. You can redeem the certificate at any Krispy Kreme location in US.", max_chars=200)
-st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : f'<a href="tel:{phone_number}">{phone_number}</a>', unsafe_allow_html=True ")
+st.markdown("For questions, please contact NCHS Afterprom committee at nchsjr.board@gmail.com or call/text : '<a href="tel:{phone_number}">{phone_number}</a>', unsafe_allow_html=True ")
 
 
 form_data = {
