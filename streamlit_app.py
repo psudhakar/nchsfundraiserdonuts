@@ -50,11 +50,12 @@ with col2:
     form_data["Count"] = st.selectbox("Number of dozens: (Each dozen costs 12$)", list(range(1, 11)), index=0)
     form_data["Comments"] = st.text_input("Comments (Optional):")
 
-# Define the data for the table
-payment_data = {
-    "Payment Method": ["Zelle", "Venmo"],
-    "ID": ["sudhakar.parsi@gmail.com", "https://venmo.com/u/Jayshri-Patel-5"]
-}
+venmourl = "https://venmo.com/u/Jayshri-Patel-5"
+cashurl = "https://cash.app/$SudhakarParsi"
+
+st.markdown("For Venmo, click [here](%s), or send it to Jayshri-Patel-5" % venmourl)
+st.markdown("For Cash app, click [here](%s), or send to $SudhakarParsi" % cashurl)
+st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
 
 # Submit button
 if st.button("Submit"):
@@ -64,7 +65,7 @@ if st.button("Submit"):
         st.markdown(':blue[Use any payment format below and include the same email address in comments section while making payment !]')
         subject = "KKD Req: " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
         body = "You received a request for KK Doughnuts. " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
-        st.table(payment_data)
+        body = body + " Comments : " + form_data["Comments"]
         send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
         st.markdown(':red[Please enter a valid email address!]')
