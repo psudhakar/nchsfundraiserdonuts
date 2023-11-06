@@ -48,6 +48,7 @@ st.write("Once an order is submitted, digital certificate will be delivered to y
 form_data = {
     "Name": "",
     "Email": "",
+    "PhoneNumber:"
     "Count": "",
     "Comments": ""
 }
@@ -57,13 +58,13 @@ col1, col2 = st.columns(2)
 with col1:
     form_data["Name"] = st.text_input("**Name:**")
     form_data["Email"] = st.text_input("**Email to send Krispy Kreme certificate(s):**")
+    form_data["PhoneNumber"] = st.text_input("**Enter your phone number:**")
 
 with col2:
-    form_data["Count"] = st.selectbox("**Number of dozens: (Each dozen costs 12$)**", list(range(1, 11)), index=0)
-    form_data["Comments"] = st.text_input("**Comments (Optional):**")
+    form_data["Count"] = st.selectbox("**Number of dozens: (Each dozen costs 14$)**", list(range(1, 11)), index=0)
+    form_data["Comments"] = st.text_input("**Any comments or custom order requests (Optional):**")
 
 venmourl = "https://venmo.com/u/Jayshri-Patel-5"
-cashurl = "https://cash.app/$SudhakarParsi"
 recipient_id = 'Jayshri-Patel-5'
 cash_app_link = f'https://cash.app/$${recipient_id}'
 
@@ -73,15 +74,27 @@ st.markdown(f'For questions, please contact NCHS Afterprom committee at nchsjr.b
 if st.button("Submit"):
     if validate_email(form_data["Email"]) and validate_name(form_data["Name"]):
         # Process form submission here
-        st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*12) + '$]')
+        st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*14) + '$]')
         st.markdown(':blue[Use any payment method below and include the same email address in comments section while making payment !]')
-        subject = "KKD Req: " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
-        body = "You received a request for KK Doughnuts. " + form_data["Name"] + "-" + form_data["Email"] + ", count : " +  str(form_data["Count"])
-        body = body + " Comments : " + form_data["Comments"]
-        st.markdown("To pay with Venmo, click [here =](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
+        
+        st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
         st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
         st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id :  $SudhakarParsi')
 
-        send_email(subject, body, "sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
+        #Send email to Organisers
+        subject = "Thanks for your support - NCHS Krispy Kreme Order !"
+        body = "We greatly appreciate your order! Order details below:\n"
+        body += "Name: " + form_data["Name"] + "\n"
+        body += "Email to receive Krispy Kreme certificates: " + form_data["Email"] + "\n"
+        body += "Phone #: " + form_data["PhoneNumber"] + "\n"
+        body += "Number of dozens: " + str(form_data["Count"]) + "\n"
+        body += "Any comments or custom order requests: " + form_data["Comments"] + "\n"
+        body += "Amount Due: $" + str(form_data["Count"] * 14) + "\n\n\n"
+        body += "Use any payment methods below : \n"
+        body += "Using Venmo, pay to  : Jayshri-Patel-5 \n"
+        body += "Using Zelle, pay to  : sudhakar.parsi@gmail.com \n"
+        body += "Using Cash, pay to  : $SudhakarParsi \n"
+
+        send_email(subject, body, form_data["Email"] + ",sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
     else:
         st.markdown(':red[Make sure to enter name and valid email address.]')
