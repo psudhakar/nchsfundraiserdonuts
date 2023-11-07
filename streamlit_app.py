@@ -5,8 +5,8 @@ import re
 
 def send_email(subject, body, to_email):
     # Your email credentials
-    sender_email = 'sudhakar.parsi123@gmail.com'  # Update with your email
-    sender_password = 'gjjz ulzw oqzp qody'  # Update with your password
+    sender_email = 'nchsjr.board@gmail.com'  # Update with your email
+    sender_password = 'xhpv nqdl ukzq oykv'  # Update with your password
 
     # Create the email message
     message = EmailMessage()
@@ -35,7 +35,6 @@ def validate_name(name):
 st.image("https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR")
 
 st.title("NCHS After Prom - Krispy Kreme Fundraiser")
-
 
 # Phone number to display
 phone_number = "+14048003312"
@@ -83,18 +82,18 @@ if st.button("Submit"):
 
         #Send email to Organisers
         subject = "Thanks for your support - NCHS Krispy Kreme Order !"
-        body = "We greatly appreciate your order! Order details below:\n"
+        body = "We greatly appreciate your order! Here are your order details :\n"
         body += "Name: " + form_data["Name"] + "\n"
         body += "Email to receive Krispy Kreme certificates: " + form_data["Email"] + "\n"
         body += "Phone #: " + form_data["PhoneNumber"] + "\n"
         body += "Number of dozens: " + str(form_data["Count"]) + "\n"
         body += "Any comments or custom order requests: " + form_data["Comments"] + "\n"
-        body += "Amount Due: $" + str(form_data["Count"] * 14) + "\n\n\n"
+        body += "Amount Due: $" + str(form_data["Count"] * 14) + "\n\n"
         body += "Use any payment methods below : \n"
         body += "Using Venmo, pay to  : Jayshri-Patel-5 \n"
         body += "Using Zelle, pay to  : sudhakar.parsi@gmail.com \n"
         body += "Using Cash, pay to  : $SudhakarParsi \n"
 
-        send_email(subject, body, form_data["Email"] + ",sudhakar.parsi@gmail.com,jay.shri2706@gmail.com")
+        send_email(subject, body, form_data["Email"] + ",nchsjr.board@gmail.com")
     else:
         st.markdown(':red[Make sure to enter name and valid email address.]')
