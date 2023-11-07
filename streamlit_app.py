@@ -33,7 +33,7 @@ def validate_name(name):
         return True
   
 def validate_count(count):
-    if len(count) == 0:
+    if len(str(count)) == 0:
         return False
     else:
         return True
@@ -77,27 +77,28 @@ st.markdown(f'For questions, please contact NCHS Afterprom committee at nchsjr.b
 
 # Submit button
 if st.button("Submit"):
+    st.session_state.disabled = True
     if validate_email(form_data["Email"]) and validate_name(form_data["Name"]) and validate_count(form_data["Count"]):
         # Process form submission here
         st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*14) + '$]')
-        st.markdown(':blue[Use any payment method below and include the same email address in comments section while making payment !]')
+        st.markdown(':blue[Use any payment method below and include your name or email address in comments section while making payment !]')
         
         st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
-        st.markdown("For Zelle, pls send payments to : sudhakar.parsi@gmail.com")
-        st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id :  $SudhakarParsi')
+        st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
+        st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
 
         #Send email to Organisers
         subject = "Thank you! NCHS Krispy Kreme Digital Dozens order !"
-        body = "We greatly appreciate your order! Please take a moment to review the details below and proceed with a payment option:\n"
+        body = "We greatly appreciate your order! Please take a moment to review the details below and proceed with payment.\n"
         body += "Name: " + form_data["Name"] + "\n"
         body += "Email to receive Krispy Kreme voucher: " + form_data["Email"] + "\n"
         body += "Phone #: " + form_data["PhoneNumber"] + "\n"
         body += "Number of dozens: " + str(form_data["Count"]) + "\n"
         body += "Any comments or custom order requests: " + form_data["Comments"] + "\n"
         body += "Amount due: $" + str(form_data["Count"] * 14) + "\n\n"
-        body += "Use any payment methods below : \n"
+        body += "Use any payment methods below. Please add your name or email address in the comments section of the payment. \n"
         body += "Using Venmo, pay to  : Jayshri-Patel-5 \n"
-        body += "Using Zelle, pay to  : sudhakar.parsi@gmail.com \n"
+        body += "Using Zelle/Paypal, pay to  : sudhakar.parsi@gmail.com \n"
         body += "Using Cash, pay to  : $SudhakarParsi \n"
 
         send_email(subject, body, form_data["Email"] + ",nchsjr.board@gmail.com")
