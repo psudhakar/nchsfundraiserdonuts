@@ -82,7 +82,7 @@ if st.button("Submit"):
 
         #Send email to Organisers
         subject = "Thanks for your support - NCHS Krispy Kreme Order !"
-        body = "We greatly appreciate your order! Here are your order details :\n"
+        body = "We greatly appreciate your order! Please take a moment to review the details below and proceed with a payment option. :\n\n"
         body += "Name: " + form_data["Name"] + "\n"
         body += "Email to receive Krispy Kreme certificates: " + form_data["Email"] + "\n"
         body += "Phone #: " + form_data["PhoneNumber"] + "\n"
