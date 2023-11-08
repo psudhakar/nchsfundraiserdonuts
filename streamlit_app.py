@@ -83,7 +83,6 @@ if st.button("Submit"):
      
         st.markdown(':blue[Use any payment method below and include your name or email address in comments section while making payment!]')
         st.markdown(':blue[Once the payment is made, you will receive an email with Krispy Kreme gift voucher in next 24-28 hours.]')
-        st.markdown(':blue[For any questions, please contact nchsjr.board@gmail.com or call (404)800-3312]')
         
         st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
         st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
