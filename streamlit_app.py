@@ -80,7 +80,9 @@ if st.button("Submit"):
     if validate_email(form_data["Email"]) and validate_name(form_data["Name"]) and validate_count(form_data["Count"]):
         # Process form submission here
         st.markdown(':green[Thanks for your support! Your order is submitted. Payment due : ' + str(form_data["Count"]*14) + '$]')
+     
         st.markdown(':blue[Use any payment method below and include your name or email address in comments section while making payment !]')
+        st.markdown(':blue[Once the payment is made, you will receive an email with Krispy Kreme gift voucher in next 24-28 hours. For any questions, please contact nchsjr.board@gmail.com or call (404)800-3312]')
         
         st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
         st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
@@ -98,7 +100,9 @@ if st.button("Submit"):
         body += "Use any payment methods below. Please add your name or email address in the comments section of the payment. \n"
         body += "Using Venmo, pay to  : Jayshri-Patel-5 \n"
         body += "Using Zelle/Paypal, pay to  : sudhakar.parsi@gmail.com \n"
-        body += "Using Cash, pay to  : $SudhakarParsi \n"
+        body += "Using Cash, pay to  : $SudhakarParsi \n\n"
+        body += "Once the payment is made, you will receive an email with Krispy Kreme gift voucher in next 24-28 hours. \n"
+        body += "For any questions, please contact nchsjr.board@gmail.com or call (404)800-3312]"
 
         send_email(subject, body, form_data["Email"] + ",nchsjr.board@gmail.com")
     else:
