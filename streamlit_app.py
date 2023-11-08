@@ -17,7 +17,7 @@ def send_email(subject, body, to_email):
     # Connect to the SMTP server and send the email
     with smtplib.SMTP('smtp.gmail.com', 587) as server:
         server.starttls()
-        server.login(sender_email, st.secrets["MAIL_APP_PWD"]
+        server.login(sender_email, st.secrets["MAIL_APP_PWD"])
         server.send_message(message)
 
 def validate_email(email):
