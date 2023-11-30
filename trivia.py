@@ -1,52 +1,98 @@
 import streamlit as st
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-st.set_page_config(page_title='NCHS After Prom Trivia Night', layout='wide')
+# Function to send email
+def send_email(to_email, data, cc_email="nchsjr.board@gmail.com"):
+    # SMTP server configuration
+    smtp_server = 'smtp.gmail.com'
+    smtp_port = 587
+    smtp_user = 'nchsjr.board@gmail.com'  # Replace with your email address
+    smtp_password = st.secrets["MAIL_APP_PWD"]  # Replace with your email password
 
-# Heading
-st.title('NCHS After Prom 2023 Trivia Night')
+    # Email content
+    message = MIMEMultipart()
+    message['From'] = smtp_user
+    message['To'] = to_email
+    message['Cc'] = cc_email
+    message['Subject'] = 'NCHS After Prom 2023 Trivia Night Registration'
 
-# Event details
-st.header('Looking for a fun night out for a good cause?')
-st.write("""
-- **Date**: Saturday, February 4, 2023
-- **Time**: 6 - 10 pm
-- **Location**: Moose Lodge, 614 IAA Dr, Bloomington
-- **Must be 21 or older to attend**
+    body = f"Here is the registration data submitted:\n\n{data}"
+    message.attach(MIMEText(body, 'plain'))
+
+    # Send the email
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    server.login(smtp_user, smtp_password)
+    server.send_message(message)
+    server.quit()
+
+# Streamlit app layout
+#st.set_page_config(page_title='Trivia Night Registration', layout='centered')
+logo_url = "https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR"
+
+# Display the logo
+st.image(logo_url)
+
+# Replicate the text and formatting from the screenshot
+st.markdown("""
+    ### Sponsored by Normal Community After Prom Committee
+    ###### Saturday, February 3, 2024 - 7 to 9 pm
+    ###### Parke Regency, Hotel and Conference Center, 1413, Lesley Dr, Bloomington - IL
+    ###### <span style="background-color:yellow; color:black; ">***Must be 21 or older to attend***</span> 
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    ## Looking for a fun night out for a good cause?
+    Come join us for a night of Trivia while dressing up in your favorite NEON themed outfit (optional)! All proceeds from the Trivia Night help support NCHS After Prom, which is an event organized and supported by Junior Class parents. Students who attend After Prom enjoy games, entertainment, food, and prizes. The event is a safe, alternative event for our students on Prom night.
 """)
 
-# Registration details
-st.subheader('Details:')
-st.write("""
-- Register your team now! Space is limited.
-- Tables are sold for an 8 person team.
-- Lock in last year's price of $160 per table if registered by January 14th.
-- Registration is $200 per table after the early bird deadline.
-- Break out your NEON and bring your own decorations and snacks (optional).
-- Prizes will be awarded for most creative table, costumes, and highest score.
-- There will be a cash bar available.
-- Other highlights include basket raffle and 50/50 raffle.
-- Trivia begins promptly at 7 pm.
-""")
+st.markdown("""
+    **Details:**
+    - Register your team now! Space is limited.
+    - Tables are sold for an 8 person team.
+    - Lock in last year's price of $160 per table
+    - Break out your NEON and bring your own decorations and snacks (optional).
+    - Prizes will be awarded for most creative table, costumes, and high/low scores.
+    - There will be a cash bar available.
+    - Other highlights include basket raffle and 50/50 raffle.
+    - Trivia begins promptly at 7 pm.
+""", unsafe_allow_html=True)
 
-# Registration form
-st.subheader('Team Registration')
-with st.form("team_registration_form"):
+st.markdown("""
+    **Registration:**
+    Reserve your table by filling the form below. Payments can be made by cheeck, or using any payment methods below
+""", unsafe_allow_html=True)
+venmourl = "https://venmo.com/u/Jayshri-Patel-5"
+recipient_id = 'Jayshri-Patel-5'
+cash_app_link = f'https://cash.app/$${recipient_id}'
+
+st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
+st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
+st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
+
+# Form for registration
+with st.form(key='registration_form'):
+    st.markdown("#### Team Registration - NCHS After Prom 2024 Trivia Night")
     team_contact = st.text_input("Team Contact:")
     team_name = st.text_input("Team Name:")
-    email = st.text_input("Email address for Team Contact:")
-    phone = st.text_input("Phone number for Team Contact:")
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        st.success("Thank you for registering. We look forward to seeing you at the event!")
+    team_contact_email = st.text_input("Email address for Team Contact:")
+    team_contact_phone = st.text_input("Phone number for Team Contact:")
+    
+    # Submit button
+    submit_button = st.form_submit_button(label='Submit')
 
-# Instructions for payment
-st.write("""
-Thank you for supporting NCHS After Prom.
+if submit_button:
+    # Prepare the data to be sent via email
+    data = f"""
+    Team Contact: {team_contact}
+    Team Name: {team_name}
+    Team Contact Email: {team_contact_email}
+    Team Contact Phone: {team_contact_phone}
+    """
+    # Send the email
+    send_email(team_contact_email, data)
+    st.success("Registration submitted successfully! You will receive a confirmation email shortly.")
 
-Please complete, detach, and send the form below with payment.
-""")
-
-# Additional instructions if needed
-# ...
-
-# Run the Streamlit app by saving this script and running `streamlit run your_script.py` in your command line.
+# Run this in your terminal: streamlit run your_script.py
