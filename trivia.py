@@ -73,9 +73,9 @@ cash_app_link = f'https://cash.app/$${recipient_id}'
 payments_data = {
     "Payment Method": ["Venmo", "Zelle/Paypal", "Cash App", "Check"],
     "Instructions": [
-        f"To pay with Venmo, click [here]({venmourl}), or send it to Venmo id: Jayshri-Patel-5",
-        "For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com",
-        f"To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi",
+        f"Click [here]({venmourl}), or send it to Venmo id: Jayshri-Patel-5",
+        "Send your payments to: sudhakar.parsi@gmail.com",
+        f"Click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi",
         "Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705"
     ]
 }
@@ -90,9 +90,9 @@ df.index += 1
 st.table(df)
 
 
-#st.markdown("Click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
-#st.markdown("send your payments to: sudhakar.parsi@gmail.com")
-#st.markdown(f'Click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
+#st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
+#st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
+#st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
 #st.markdown("Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
 
 # Form for registration
