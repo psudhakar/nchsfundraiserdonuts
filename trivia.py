@@ -2,6 +2,7 @@ import streamlit as st
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import pandas as pd
 
 # Function to send email
 def send_email(to_email, data, cc_email="nchsjr.board@gmail.com"):
@@ -62,16 +63,37 @@ st.markdown("""
 
 st.markdown("""
     **Registration:**
-    Reserve your table by filling the form below. Payments can be made by cheeck, or using any payment methods below
+    Reserve your table by filling the form below. Payments can be made by cheeck, or using any payment methods below:
 """, unsafe_allow_html=True)
 venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 recipient_id = 'Jayshri-Patel-5'
 cash_app_link = f'https://cash.app/$${recipient_id}'
 
-st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
-st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
-st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
-st.markdown("Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
+# Data for the payment options table
+payments_data = {
+    "Payment Method": ["Venmo", "Zelle/Paypal", "Cash App", "Check"],
+    "Instructions": [
+        f"To pay with Venmo, click [here]({venmourl}), or send it to Venmo id: Jayshri-Patel-5",
+        "For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com",
+        f"To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi",
+        "Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705"
+    ]
+}
+
+# Create DataFrame
+df = pd.DataFrame(payments_data)
+
+# Adjust the DataFrame index to start from 1
+df.index += 1
+
+# Display the table in Streamlit
+st.table(df)
+
+
+#st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
+#st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
+#st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
+#st.markdown("Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
 
 # Form for registration
 with st.form(key='registration_form'):
