@@ -40,7 +40,7 @@ st.image(logo_url)
 st.markdown("""
     ## Trivia Night by NCHS After Prom Team
     ###### Saturday, February 3, 2024 - 7 to 9 pm
-    ###### Parke Regency, 1413, Lesley Dr, Bloomington - IL
+    ###### Parke Regency, 1413 Lesley Dr, Bloomington - IL
     ###### <span style="background-color:yellow; color:black; ">***Must be 21 or older to attend***</span> 
 """, unsafe_allow_html=True)
 
@@ -87,7 +87,7 @@ df = pd.DataFrame(data)
 df.index += 1
 
 # Convert DataFrame to HTML, including the index
-html_table = df.to_html(escape=False)
+html_table = df.to_html(escape=False, justify="center")
 
 # Display the table in Streamlit with clickable links and index starting from 1
 st.markdown(html_table, unsafe_allow_html=True)
