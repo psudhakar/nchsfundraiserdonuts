@@ -69,26 +69,28 @@ venmourl = "https://venmo.com/u/Jayshri-Patel-5"
 recipient_id = 'Jayshri-Patel-5'
 cash_app_link = f'https://cash.app/$${recipient_id}'
 
-# Data for the payment options table
-payments_data = {
+# Data for the table
+data = {
     "Payment Method": ["Venmo", "Zelle/Paypal", "Cash App", "Check"],
     "Instructions": [
-        f"Click [here]({venmourl}), or send it to Venmo id: Jayshri-Patel-5",
+        f"Click <a href={venmourl}> here </a>, or send it to Venmo id: Jayshri-Patel-5",
         "Send your payments to: sudhakar.parsi@gmail.com",
-        f"Click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi",
+        f"Click <a href={cash_app_link}> here </a>  or send it to Cash id: $SudhakarParsi",
         "Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705"
     ]
 }
 
 # Create DataFrame
-df = pd.DataFrame(payments_data)
+df = pd.DataFrame(data)
 
 # Adjust the DataFrame index to start from 1
 df.index += 1
 
-# Display the table in Streamlit
-st.table(df)
+# Convert DataFrame to HTML, including the index
+html_table = df.to_html(escape=False)
 
+# Display the table in Streamlit with clickable links and index starting from 1
+st.markdown(html_table, unsafe_allow_html=True)
 
 #st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
 #st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
