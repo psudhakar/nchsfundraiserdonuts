@@ -71,7 +71,7 @@ cash_app_link = f'https://cash.app/$${recipient_id}'
 st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
 st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
 st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
-st.markdown("make checka payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
+st.markdown("Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
 
 # Form for registration
 with st.form(key='registration_form'):
