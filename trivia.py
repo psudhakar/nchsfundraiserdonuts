@@ -39,7 +39,7 @@ st.image(logo_url)
 st.markdown("""
     ### Trivia Night by NCHS After Prom Team
     ###### Saturday, February 3, 2024 - 7 to 9 pm
-    ###### Parke Regency, Hotel and Conference Center, 1413, Lesley Dr, Bloomington - IL
+    ###### Parke Regency, 1413, Lesley Dr, Bloomington - IL
     ###### <span style="background-color:yellow; color:black; ">***Must be 21 or older to attend***</span> 
 """, unsafe_allow_html=True)
 
@@ -71,6 +71,7 @@ cash_app_link = f'https://cash.app/$${recipient_id}'
 st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
 st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
 st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
+st.markdown("Mail your checks 5018 Londonderry Road, Bloomington, IL - 61705")
 
 # Form for registration
 with st.form(key='registration_form'):
