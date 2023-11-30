@@ -29,6 +29,14 @@ def send_email(to_email, data, cc_email="nchsjr.board@gmail.com"):
     server.send_message(message)
     server.quit()
 
+# Hide hamburger menu and footer
+st.set_page_config(page_title="Trivia Night by NCHS After Prom Team", layout="wide", menu_items={
+    'Get Help': None,
+    'Report a bug': None,
+    'About': None
+})
+
+
 # Streamlit app layout
 #st.set_page_config(page_title='Trivia Night Registration', layout='centered')
 #logo_url = "https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR"
