@@ -71,7 +71,7 @@ cash_app_link = f'https://cash.app/$${recipient_id}'
 st.markdown("To pay with Venmo, click [here](%s), or send it to Venmo id: Jayshri-Patel-5" % venmourl)
 st.markdown("For Zelle or Paypal, send your payments to: sudhakar.parsi@gmail.com")
 st.markdown(f'To pay with Cash App, click [here]({cash_app_link}) or send it to Cash id: $SudhakarParsi')
-st.markdown("Mail your checks 5018 Londonderry Road, Bloomington, IL - 61705")
+st.markdown("make checka payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705")
 
 # Form for registration
 with st.form(key='registration_form'):
@@ -92,6 +92,16 @@ if submit_button:
     Team Contact Email: {team_contact_email}
     Team Contact Phone: {team_contact_phone}
     """
+    data += "Use any payment methods below. Please add your name or email address in the comments section of the payment. \n"
+    data += "Using Venmo, pay to  : Jayshri-Patel-5 \n"
+    data += "Using Zelle/Paypal, pay to  : sudhakar.parsi@gmail.com \n"
+    data += "Using Cash, pay to  : $SudhakarParsi \n\n"
+    data += "Once the payment is made, you will receive an email with Krispy Kreme gift voucher in next 24-28 hours. \n"
+    data += "For any questions, please contact nchsjr.board@gmail.com or call (404)800-3312] \n"
+    data += "Make checks payable to 'NCHS After Prom' and mail to 5018 Londonderry Road, Bloomington, IL - 61705"
+
+
+    
     # Send the email
     send_email(team_contact_email, data)
     st.success("Registration submitted successfully! You will receive a confirmation email shortly.")
