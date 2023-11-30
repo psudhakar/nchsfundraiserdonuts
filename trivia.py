@@ -37,14 +37,14 @@ st.image(logo_url)
 
 # Replicate the text and formatting from the screenshot
 st.markdown("""
-    ### Trivia Night by NCHS After Prom Team
+    ## Trivia Night by NCHS After Prom Team
     ###### Saturday, February 3, 2024 - 7 to 9 pm
     ###### Parke Regency, 1413, Lesley Dr, Bloomington - IL
     ###### <span style="background-color:yellow; color:black; ">***Must be 21 or older to attend***</span> 
 """, unsafe_allow_html=True)
 
 st.markdown("""
-    ## Looking for a fun night out for a good cause?
+    ### Looking for a fun night out for a good cause?
     Come join us for a night of Trivia while dressing up in your favorite NEON themed outfit (optional)! All proceeds from the Trivia Night help support NCHS After Prom, which is an event organized and supported by Junior Class parents. Students who attend After Prom enjoy games, entertainment, food, and prizes. The event is a safe, alternative event for our students on Prom night.
 """)
 
