@@ -37,7 +37,7 @@ st.image(logo_url)
 
 # Replicate the text and formatting from the screenshot
 st.markdown("""
-    ### Sponsored by Normal Community After Prom Committee
+    ### Trivia Night by NCHS After Prom Team
     ###### Saturday, February 3, 2024 - 7 to 9 pm
     ###### Parke Regency, Hotel and Conference Center, 1413, Lesley Dr, Bloomington - IL
     ###### <span style="background-color:yellow; color:black; ">***Must be 21 or older to attend***</span> 
