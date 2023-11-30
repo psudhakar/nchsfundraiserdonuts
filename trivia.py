@@ -31,7 +31,9 @@ def send_email(to_email, data, cc_email="nchsjr.board@gmail.com"):
 
 # Streamlit app layout
 #st.set_page_config(page_title='Trivia Night Registration', layout='centered')
-logo_url = "https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR"
+#logo_url = "https://drive.google.com/uc?id=1mTbNpv2DyU2zv8xm73wBc1GVH2EJYdqR"
+logo_url = "https://drive.google.com/uc?id=1SfAQ50kW6gybO-Pqcs6mFWQ2DiLY0mcH"
+
 
 # Display the logo
 st.image(logo_url)
